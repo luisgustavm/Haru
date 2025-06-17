@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Amor 💜</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="estrelas" id="estrelas"></div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="menu" id="menu">
+    <a href="principal.html">Início</a>
+    <a href="musicas.html">Músicas</a>
+    <a href="videos.html">Vídeos</a>
+    <a href="mensagens.html">Mensagens</a>
+  </div>
+<br>
+<br>
+<br>
+
+  <div id="nomeAmor">Meu amor</div>
+
+  <main class="conteudo">
+    <h1>Oi, meu fofo 💖</h1>
+    <p>
+      Que bom que você chegou até aqui. Essa página é só pra você, feita com carinho, estrelas e muito amor. 💫
+      <br /><br />
+      Explore o menu e descubra cada pedacinho preparado com amor pra você.
+    </p>
+  </main>
+<footer>eu amo Suzu!!❤</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menuLateral");
+    menu.classList.toggle("ativo");
+  }
+
+  // Criar estrelas animadas no fundo
+  const container = document.getElementById('estrelas');
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('estrela');
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.animationDelay = (Math.random() * 2) + 's';
+    container.appendChild(star);
+  }
+
+  // Pega o nome do localStorage e exibe no topo
+  const nomeDiv = document.getElementById('nomeAmor');
+  const nomeSalvo = localStorage.getItem('nomeAmor');
+  if (nomeSalvo && nomeSalvo.length > 0) {
+    nomeDiv.textContent = nomeSalvo;
+  } else {
+    nomeDiv.textContent = "Meu amor"; // fallback
+  }
+</script>
+<script src="script_menu.js"></script>
+
+</body>
+</html>

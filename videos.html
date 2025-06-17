@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vídeos do Meu Amor 💜</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="menu" id="menu">
+    <a href="principal.html">Início</a>
+    <a href="musicas.html">Músicas</a>
+    <a href="videos.html">Vídeos</a>
+    <a href="mensagens.html">Mensagens</a>
+  </div>
+<br>
+<br>
+
+  <center><div class="topo" id="topo-nome">💜 Vídeos com você 💜</div></center>
+
+  <div class="video-lista" id="listaVideos">
+    <div class="video">
+      <div class="video-title">Nosso momento especial ✨</div>
+      <video controls>
+        <source src="video/Roblox-2025-06-16T21_19_39.776Z - Trim.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+
+    <div class="video">
+      <div class="video-title">Lembrança que eu amo 💞</div>
+      <iframe src="video/Roblox-2025-06-16T21_19_07.955Z.mp4" allowfullscreen></iframe>
+    </div>
+
+    <!-- Adicione mais vídeos aqui! -->
+  </div>
+<footer>eu amo Suzu!!❤</footer>
+
+  <script>
+
+    // Mostrar o nome salvo (se houver)
+    const nome = localStorage.getItem('nome');
+    if (nome) {
+      document.getElementById("topo-nome").innerText = `💜 Vídeos do ${nome} 💜`;
+    }
+  </script>
+<script src="script_menu.js"></script>
+</body>
+</html>

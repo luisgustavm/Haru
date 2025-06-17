@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mensagens do Meu Amor 💜</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<div class="estrelas" id="estrelas"></div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="menu" id="menu">
+    <a href="principal.html">Início</a>
+    <a href="musicas.html">Músicas</a>
+    <a href="videos.html">Vídeos</a>
+    <a href="mensagens.html">Mensagens</a>
+  </div>
+<br>
+<br>
+<div id="nomeAmor">Meu amor</div>
+
+<div class="conteudo">
+  <h1>Minhas Palavras para Você</h1>
+
+  <details>
+    <summary>Clique para abrir minha mensagem de amor 💖</summary>
+    <p>
+     Ola Suzu, eu sei que eu te conheço a pouco tempo, mas saiba que nesse tempo, eu me apaixonei por você,
+      e eu quero que você saiba que eu te amo muito, e que quero passar o resto 
+      da minha vida com você. Eu não poderia pedir uma pessoa melhor para amar,
+      você é a melhor coisa que já aconteceu na minha vida, e eu quero que você saiba que você me faz muito bem,
+      e eu quero retribuir isso dando muito amor, carinho e atenção a você. Eu nunca vou te deixar,
+      se por acaso eu fazer isso, saiba que eu voltarei, pois você é a razão do meu sorriso, você é minha
+      companhia do dia a dia, você é meu tudo. Então, estou fazendo esse site para que saiba que eu te amo:3 ❤❤
+    </p>
+  </details>
+<br>
+<br>
+  <details>
+    <summary>Outra mensagem especial 🌹</summary>
+    <p>
+     Também quero que saiba, Suzu, você é aquela pessoa incrível, a mais alegre, a mais fofa, a mais bobinha kkk, a mais engraçada,
+     a mais amigável, a mais companheira, resumindo =w=, e eu sou muito grato por você ter aparecido na minha vida.
+     Te amo tanto, tanto, que fico esperando sempre suas mensagens kkkk. Sempre estarei com você quando precisar,
+     e sei que você fará o mesmo comigo =w=. I love you ❤❤
+    </p>
+  </details>
+</div>
+<footer>eu amo Suzu!!❤</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menuLateral').classList.toggle('show');
+  }
+
+  // Opcional: carrega nome salvo no localStorage
+  const nome = localStorage.getItem('nomeAmor');
+  if (nome) {
+    document.getElementById('nomeAmor').textContent = nome;
+  }
+
+  // Gera estrelas animadas
+  const estrelasContainer = document.getElementById('estrelas');
+  for (let i = 0; i < 100; i++) {
+    const e = document.createElement('div');
+    e.className = 'estrela';
+    e.style.top = Math.random() * 100 + '%';
+    e.style.left = Math.random() * 100 + '%';
+    e.style.animationDelay = (Math.random() * 2) + 's';
+    estrelasContainer.appendChild(e);
+  }
+</script>
+<script src="script_menu.js"></script>
+</body>
+</html>

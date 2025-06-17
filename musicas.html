@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Músicas do Meu Amor 💜</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="estrelas" id="estrelas"></div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <div class="menu" id="menu">
+    <a href="principal.html">Início</a>
+    <a href="musicas.html">Músicas</a>
+    <a href="videos.html">Vídeos</a>
+    <a href="mensagens.html">Mensagens</a>
+  </div>
+<br>
+<br>
+  <div id="nomeAmor">Meu amor❤</div>
+  <center><h1>Músicas que dedico a você!!</h1></center>
+<main class="conteudo" id="listaMusicas">
+  <!-- Músicas serão inseridas aqui via JS -->
+</main>
+
+  <footer>eu amo Suzu!!❤</footer>
+
+
+  <script>
+
+    // Fundo estrelas
+    const container = document.getElementById('estrelas');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.classList.add('estrela');
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = (Math.random() * 2) + 's';
+      container.appendChild(star);
+    }
+
+    // Exemplo de músicas (troque os links e nomes para os seus)
+    const musicas = [
+      {
+        titulo: "cafuné - tek it",
+        src: "music/cafuné - tek it.mp3"
+      },
+      {
+        titulo: "Me gustas tú - Manu Gavassi",
+        src: "music/10 Manu chao - Me Gustas Tu.mp3"
+      },
+      {
+        titulo: "Acerola - Acústico de Quarto",
+        src: "music/Murart - Acerola (Acústico de Quarto) [6hvnA8DhO6s].mp3"
+      }
+    ];
+
+    const listaMusicas = document.getElementById('listaMusicas');
+
+    musicas.forEach(({titulo, src}) => {
+      const divMusica = document.createElement('div');
+      divMusica.className = 'musica';
+
+      const tituloElem = document.createElement('div');
+      tituloElem.className = 'musica-title';
+      tituloElem.textContent = titulo;
+
+      const audioElem = document.createElement('audio');
+      audioElem.controls = true;
+      audioElem.src = src;
+
+      divMusica.appendChild(tituloElem);
+      divMusica.appendChild(audioElem);
+      listaMusicas.appendChild(divMusica);
+    });
+
+    // Aqui, se quiser puxar o nome da pessoa que digitou no index (salvo no localStorage)
+    const nomeSalvo = localStorage.getItem('nomeAmor');
+    if(nomeSalvo) {
+      document.getElementById('nomeAmor').textContent = nomeSalvo;
+    }
+  </script>
+<script src="script_menu.js"></script>
+</body>
+</html>
