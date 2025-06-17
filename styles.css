@@ -379,11 +379,13 @@ iframe, video {
 }
 footer {
   position: fixed;
+  left: 0;              /* garante que comece da borda esquerda */
+  right: 0;             /* garante que vá até a borda direita */
   bottom: 0;
   width: 100%;
-  background: rgba(30, 0, 70, 0.616);
+  background: rgba(30, 0, 70, 0.9);
   color: #d9b3ff;
-  text-align: center; /* centraliza o texto */
+  text-align: center;
   padding: 12px 0;
   font-weight: 700;
   font-size: 18px;
