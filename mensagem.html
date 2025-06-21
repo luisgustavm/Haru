@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Amor</title>
+  <script src="script_menu.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fbeee6, #f7d9c4);
+      color: #333;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 40px;
+    }
+
+    .linha-horizontal {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+    }
+
+    .poema {
+      position: absolute;
+      left: 90px;
+      bottom: 250px;
+      width: 45%;
+      display: none;
+    }
+
+    .linha {
+      font-size: 25px;
+      margin: 6px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .contador {
+      font-size: 30px;
+      text-align: left;
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .arvore-container {
+      position: absolute;
+      right: 100px;
+      bottom: 43px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 45vw;
+    }
+
+    .arvore {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      position: relative;
+    }
+
+    .tronco {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3000px;
+      height: 450px;
+    }
+
+    .folhas {
+      position: absolute;
+      bottom: 160px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .coracao {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+
+    .coracao::before,
+    .coracao::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .coracao::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .coracao::after {
+      left: 7px;
+      top: 0;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes aparecer {
+      to { opacity: 1; }
+    }
+
+    .Love__You {
+      margin: 0;
+      padding: 0;
+      background: #F5E8DC;
+      font-size: 20px;
+      font-family: 'Love Ya Like A Sister', cursive;
+      color: #5C4033;
+      overflow: auto;
+    }
+
+    #chuva-coracoes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .coracao-queda {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      transform: rotate(-45deg);
+      opacity: 0.9;
+      animation: cair linear;
+    }
+
+    .coracao-queda::before,
+    .coracao-queda::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .coracao-queda::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .coracao-queda::after {
+      left: 7px;
+      top: 0;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Ajustes para celular em modo paisagem */
+    @media (orientation: landscape) and (max-height: 500px) {
+      .linha {
+        font-size: 18px;
+      }
+
+      .contador {
+        font-size: 18px;
+        left: 20px;
+        bottom: 20px;
+      }
+
+      .poema {
+        width: 55%;
+        left: 20px;
+        bottom: 140px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .arvore {
+        max-width: 300px;
+        height: 300px;
+      }
+
+      .folhas {
+        width: 300px;
+        height: 220px;
+        bottom: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="menu" id="menu">
+  <a href="principal.html">Início</a>
+  <a href="musicas.html">Músicas</a>
+  <a href="videos.html">Vídeos</a>
+  <a href="mensagens.html">Mensagens</a>
+  <a href="mensagem.html">Especial</a>
+</div>
+
+<div class="container Love__You">
+  <div class="linha-horizontal"></div>
+
+  <div class="contador" id="contador"></div>
+
+ <div class="poema" id="poema">
+  <div class="linha" style="animation-delay: 0s;">Para o amor da minha vida, Suzu,</div>
+  <div class="linha" style="animation-delay: 2s;">eu te amo do fundo do meu coração,</div>
+  <div class="linha" style="animation-delay: 4s;">vou te amar até meu último suspiro,</div>
+  <div class="linha" style="animation-delay: 6s;">vou fazer de tudo pra te dar o bom e do melhor,</div>
+  <div class="linha" style="animation-delay: 8s;">quero te fazer feliz mais que tudo nesse mundo,</div>
+  <div class="linha" style="animation-delay: 10s;">eu te amo,</div>
+  <div class="linha" style="animation-delay: 12s;">e te prometo que irei casar com você!</div>
+</div>
+
+
+  <div class="arvore-container">
+    <div class="arvore">
+      <div class="folhas" id="folhas"></div>
+      <svg class="tronco" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M45 100 L50 20 L55 100 Z" fill="#1c8a74" />
+      </svg>
+    </div>
+  </div>
+</div>
+<div id="chuva-coracoes"></div>
+
+<script>
+  const folhas = document.getElementById("folhas");
+  const cores = ["#f44336", "#e91e63", "#ff4081", "#ff6f61", "#f06292", "#f8bbd0", "#ec407a", "#ff8a80", "#f48fb1"];
+
+function criarCoracoes(qtd) {
+  const centerX = 190;
+  const centerY = 135;
+
+  function randomNormal() {
+    let u = 0, v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  for (let i = 0; i < qtd; i++) {
+    const offsetX = randomNormal() * 80; // espalha mais para os lados
+    const offsetY = randomNormal() * 60; // espalha mais para cima/baixo
+
+    const x = centerX + offsetX;
+    const y = centerY + offsetY;
+    const rot = Math.random() * 360;
+    const size = 10 + Math.random() * 6;
+
+    const coracao = document.createElement("div");
+    coracao.className = "coracao";
+    coracao.style.left = `${x}px`;
+    coracao.style.top = `${y}px`;
+    coracao.style.transform = `rotate(${rot}deg)`;
+    coracao.style.width = `${size}px`;
+    coracao.style.height = `${size}px`;
+    coracao.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
+
+    folhas.appendChild(coracao);
+  }
+}
+
+
+
+  criarCoracoes(300); // Muitos coraçõezinhos pequenos
+
+  const coracoesCriados = document.querySelectorAll(".coracao");
+  const contador = document.getElementById("contador");
+  const poema = document.getElementById("poema");
+
+  function animarCoracoes() {
+    coracoesCriados.forEach((c, i) => {
+      setTimeout(() => {
+        c.style.animation = "aparecer 0.6s forwards";
+      }, i * 10);
+    });
+  }
+
+  function mostrarContador() {
+    contador.style.opacity = 1;
+  }
+
+  function mostrarPoema() {
+    poema.style.display = "block";
+    const versos = poema.querySelectorAll(".linha");
+    versos.forEach((linha, i) => {
+      setTimeout(() => {
+        linha.style.animation = "fadeInUp 1s ease forwards";
+      }, i * 2000);
+    });
+  }
+
+  function atualizarContador() {
+    let inicioSalvo = localStorage.getItem("inicioAmor");
+
+if (!inicioSalvo) {
+  // Usa a data fixa como valor padrão na primeira vez
+  inicioSalvo = "2025-06-14T23:08:45";
+  localStorage.setItem("inicioAmor", inicioSalvo);
+}
+
+const inicio = new Date("2025-06-14T23:08:45");
+
+
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    contador.innerHTML =
+      `Meu amor por você começou há muito tempo:<br><strong>${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos</strong>`;
+  }
+
+  animarCoracoes();
+
+  setTimeout(() => {
+    mostrarContador();
+    atualizarContador();
+    setInterval(atualizarContador, 1000);
+  }, 2500);
+
+  setTimeout(() => {
+    mostrarPoema();
+  }, 4500);
+
+  const chuva = document.getElementById("chuva-coracoes");
+
+function criarCoracaoQueda() {
+  const coracao = document.createElement("div");
+  coracao.className = "coracao-queda";
+  coracao.style.left = Math.random() * window.innerWidth + "px";
+  coracao.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
+  coracao.style.animationDuration = 4 + Math.random() * 3 + "s";
+  coracao.style.width = coracao.style.height = 10 + Math.random() * 6 + "px";
+  chuva.appendChild(coracao);
+
+  setTimeout(() => {
+    coracao.remove();
+  }, 7000); // Remove do DOM após cair
+}
+
+setInterval(criarCoracaoQueda, 300); // Cria um novo a cada 300ms
+
+</script>
+</body>
+</html>
