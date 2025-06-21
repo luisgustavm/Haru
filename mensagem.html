@@ -37,13 +37,24 @@
       background-color: #333;
     }
 
-    .poema {
-      position: absolute;
-      left: 90px;
-      bottom: 250px;
-      width: 45%;
-      display: none;
-    }
+.poema {
+  position: absolute;
+  left: 60px;
+  bottom: 300px; /* Subiu mais */
+  width: 45%;
+  display: none;
+}
+
+.contador {
+  font-size: 28px;
+  text-align: left;
+  position: absolute;
+  bottom: 120px; /* Subiu para ficar mais visível */
+  left: 60px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
     .linha {
       font-size: 22px;
@@ -53,15 +64,6 @@
       animation: fadeInUp 1s ease forwards;
     }
 
-    .contador {
-      font-size: 30px;
-      text-align: left;
-      position: absolute;
-      bottom: 40px;
-      left: 60px;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
 
     @keyframes fadeInUp {
       to {
@@ -135,26 +137,26 @@
     }
 
     @media screen and (max-width: 600px) and (orientation: portrait) {
-      .container {
-        padding: 20px;
-      }
+  .container {
+    padding: 20px;
+  }
 
-      .linha {
-        font-size: 18px;
-      }
+  .linha {
+    font-size: 17px;
+  }
 
-      .contador {
-        font-size: 18px;
-        bottom: 20px;
-        left: 20px;
-      }
+  .contador {
+    font-size: 17px;
+    bottom: 100px; /* Subiu mais */
+    left: 20px;
+  }
 
-      .poema {
-        width: 55%;
-        left: 20px;
-        bottom: 150px;
-      }
-    }
+  .poema {
+    width: 90%;
+    left: 20px;
+    bottom: 250px; /* Subiu mais */
+  }
+}
 .pedido-btn {
   background-color: #ff69b4;
   color: white;
